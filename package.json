@@ -1,5 +1,5 @@
 {
-  "name": "React-cli",
+  "name": "react-cli",
   "version": "1.0.0",
   "description": "A React.js project",
   "author": "liangpei.duan <496287730@qq.com>",
@@ -11,10 +11,17 @@
     "test": "cross-env NODE_ENV=testing node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.16.2"
+    "antd": "^3.1.0",
+    "axios": "^0.16.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^3.0.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "": "^6.0.6",
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
