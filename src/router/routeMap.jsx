@@ -6,7 +6,7 @@ import Layout from '../containers/Layout'
 //按需加载
 const Users = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require(`../containers/Users`).default)
+        cb(null, require('../containers/Users').default)
     },'users')
 }
 
