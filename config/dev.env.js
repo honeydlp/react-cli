@@ -1,4 +1,4 @@
 module.exports = {
     NODE_ENV: '"development"',
-    BASE_API: '"http://dev.moguplan.com/sswdkt"',
+    BASE_API: '""',
 };
