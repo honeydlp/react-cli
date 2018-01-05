@@ -49,11 +49,11 @@ module.exports = {
       {test: /\.css$/, loader: ExtractTextPlugin.extract({
         use: 'css-loader',
         fallback : 'style-loader'
-    })},
-    {test: /\.scss$/, loader: ExtractTextPlugin.extract({
-        use: 'css-loader!sass-loader',
-        fallback : 'style-loader'
-    })},
+      })},
+      {test: /\.scss$/, loader: ExtractTextPlugin.extract({
+          use: 'css-loader!sass-loader',
+          fallback : 'style-loader'
+      })},
     ]
   }
 }

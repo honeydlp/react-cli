@@ -1,55 +1,41 @@
 
-'use strict';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import PureRenderMixin from 'react-addons-pure-render-mixin'    //react优化
 
-const _mm    = new MMUtile();
-const _user  = new User();
+import FormItem from '@/components/FormItem'
+import FormButton from '@/components/Button'
 
-const Login = React.createClass({
-    getInitialState() {
-        return {
-            username : '',
-            password : '',
-            redirect : ''
-        };
-    },
-    // 点击登录
-    onLogin(e){
-        e.preventDefault();
-        let loginInfo   = {
-                username: this.state.username,
-                password: this.state.password
-            },
-            checkLogin  = _user.checkLoginInfo(loginInfo);
-        if(checkLogin.state){
-            // 登录成功后进行跳转
-            _user.login(loginInfo).then(res => {
-                _mm.setStorage('userInfo', res);
-                window.location.href = this.state.redirect || '#/home';
-            }, errMsg => {
-                _mm.errorTips(errMsg);
-            });
-        }else{
-            _mm.errorTips(checkLogin.msg);
-        }
-    },
-    // 输入框内容变化时，更新state中的字段
-    onInputChange(e){
-        let ele         = e.target,
-            inputValue  = e.target.value,
-            inputName   = e.target.name;
-        this.setState({
-            [inputName] : inputValue
-        });
-    },
-    render() {
-        return (
-            <div className="row">
-                登陆
-            </div>
-        );
+class Login extends React.Component{
+  constructor(props,context){
+    super(props,context)
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    this.state = {
+      text:'',
+      passward:'',
     }
-});
+  }
+  getTextVal(val){
+    this.setState({
+      text : val
+    })
+  }
+  getPassVal(val){
+    this.setState({
+      passward : val
+    })    
+  }
+  render(){
+    return (
+      <div className="login">
+        <div className="warp">
+          <h3>请登录</h3>
+          <FormItem formItemName="用户名：" formType="text" formTipText="请输入用户名" getSonVal={this.getTextVal.bind(this)}/>
+          <FormItem formItemName="密码" formType="password" formTipText="请输入密码" getSonVal={this.getPassVal.bind(this)}/>
+          <FormButton>登录</FormButton>
+        </div>
+      </div>
+    )
+  }
+}
 
-export default Login;
+export default Login

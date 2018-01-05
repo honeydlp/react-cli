@@ -1,7 +1,7 @@
 import React from 'react'
-import { Router, Route, IndexRoute } from 'react-router'
+import { Router, Route, IndexRedirect } from 'react-router'
 
-import Login from '../containers/Login'
+import Login from '../containers/Login/index.jsx'
 import Layout from '../containers/Layout'
 //按需加载
 const Users = (location, cb) => {
@@ -29,6 +29,9 @@ const ErrorPage = (location, cb) => {
 }
 
 class RouterMap extends React.Component {
+    constructor(props){
+        super(props)
+    }
     render() {
         return (
             <Router history={this.props.history}>

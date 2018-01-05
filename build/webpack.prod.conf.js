@@ -1,5 +1,5 @@
 var path = require('path')
-var utils = require('./utils')
+var utils = require('./utils');
 var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
@@ -13,12 +13,6 @@ var env = process.env.NODE_ENV === 'production' ? config.build.env : config.test
 var a = (process.env.NODE_ENV === 'production')
 
 var webpackConfig = merge(baseWebpackConfig, {
-  module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true
-    })
-  },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: process.env.NODE_ENV === 'production' ? config.build.assetsRoot : config.test.assetsRoot,
@@ -37,7 +31,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       sourceMap: true
     }),
     // extract css into its own file
-    new ExtractTextPlugin('css/[name].[contenthash].css')
+    new ExtractTextPlugin('css/[name].[contenthash].css'),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({

@@ -1,4 +1,27 @@
-body {
+// coommon
+@mixin fullScreenWH{
+    width: 100%;
+    height: 100%;
+}
+@mixin center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@mixin h-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);    
+}
+@mixin h-center{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);    
+}
+// theme color
+$darkColor : #666;
+body,html{
     margin: 0;
     padding: 0;
     background-color: #f1f1f1;
@@ -9,6 +32,7 @@ body {
         box-sizing: border-box;
         font-family: "微软雅黑","Times New Roman",Georgia,Serif;
     }
+    @include fullScreenWH;
 }
 
 a {
@@ -19,8 +43,9 @@ img {
     border: 0;
 }
 
-input {
-    outline:none;
+input[type="text"],input[type="password"]{
+    border: none;
+    outline: none;
 }
 
 .float-left {
@@ -33,4 +58,20 @@ input {
     display: table;
     content: '';
     clear: both;
+}
+
+
+
+// root
+#root {
+    @include fullScreenWH;
+}
+
+// login
+.login{
+    @include fullScreenWH;
+    background-color: $darkColor;
+    .warp{
+        @include center;
+    }
 }
